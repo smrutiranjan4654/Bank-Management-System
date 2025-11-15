@@ -187,18 +187,36 @@ public class SignupTwo extends JFrame implements ActionListener{
         String saadhar = aadhar.getText();
 
         
-        try {
+        
+        
+    try {
+        if(span.equals("")) {
+        JOptionPane.showMessageDialog(null,"Pan Number is Required.");
+         }
+         else if(saadhar.equals("")){
+            JOptionPane.showMessageDialog(null,"Addhar Number is Required.");
+         }
+         else if(seniorcitizen == null){
+            JOptionPane.showMessageDialog(null,"Choose you are seniorcitizen or not ");
+         }
+         else if(existingaccount == null){
+            JOptionPane.showMessageDialog(null,"Choose you have existing account or not ");
+         }
+         else{
                 Conn c = new Conn();
                 String query = "insert into signuptwo values('"+formno+"','"+sreligion+"','"+scategory+"','"+sincome+"','"+seducation+"','"+soccupation+"','"+span+"','"+saadhar+"','"+seniorcitizen+"','"+existingaccount+"')";
                 c.s.executeUpdate(query);
 
                 //signup3 object
+
+                setVisible(false);
+                new SignupThree(formno).setVisible(true);
             }
+        }
             
          catch (Exception e) {
             System.out.println(e);
         }
-
     }
     public static void main(String[] args) {
        new SignupTwo(""); 
