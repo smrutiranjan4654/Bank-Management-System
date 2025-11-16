@@ -97,7 +97,6 @@ public class MiniStatement extends JFrame implements ActionListener {
         setSize(400, 600);
         setLocation(20, 20);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     @Override
